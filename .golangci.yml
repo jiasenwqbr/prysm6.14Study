@@ -1,0 +1,41 @@
+version: "2"
+run:
+  go: 1.23.5
+linters:
+  enable:
+    - errcheck
+    - ineffassign
+    - govet
+  disable:
+    - staticcheck
+    - unused
+  exclusions:
+    generated: lax
+    presets:
+      - comments
+      - common-false-positives
+      - legacy
+      - std-error-handling
+    paths:
+      - validator/web/site_data.go
+      - .*_test.go
+      - proto
+      - tools/analyzers
+      - third_party$
+      - builtin$
+      - examples$
+
+formatters:
+  enable:
+    - gofmt
+    - goimports
+  exclusions:
+    generated: lax
+    paths:
+      - validator/web/site_data.go
+      - .*_test.go
+      - proto
+      - tools/analyzers
+      - third_party$
+      - builtin$
+      - examples$
